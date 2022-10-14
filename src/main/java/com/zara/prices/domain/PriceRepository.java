@@ -17,7 +17,7 @@ public interface PriceRepository extends JpaRepository<Price, Long> {
             " and p.brand_id = :brandId" +
             " order by priority desc" +
             " limit 1")
-    Price findPriceByDateAndBrandAndId(
+    Price findPriceByDateAndBrandAndProduct(
             @Param("applicationDate") Date applicationDate,
             @Param("productId") Long productId,
             @Param("brandId") Integer brandId);

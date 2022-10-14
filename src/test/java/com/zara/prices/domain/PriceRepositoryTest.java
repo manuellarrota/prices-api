@@ -29,7 +29,7 @@ public class PriceRepositoryTest {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        Price price = priceRepository.findPriceByDateAndBrandAndId(applicationDate, productId, brandId);
+        Price price = priceRepository.findPriceByDateAndBrandAndProduct(applicationDate, productId, brandId);
         Assertions.assertThat(price.getPrice()).isEqualTo(35.50);
     }
 
@@ -44,7 +44,7 @@ public class PriceRepositoryTest {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        Price price = priceRepository.findPriceByDateAndBrandAndId(applicationDate, productId, brandId);
+        Price price = priceRepository.findPriceByDateAndBrandAndProduct(applicationDate, productId, brandId);
         Assertions.assertThat(price.getPrice()).isEqualTo(25.45);
     }
 
@@ -59,7 +59,7 @@ public class PriceRepositoryTest {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        Price price = priceRepository.findPriceByDateAndBrandAndId(applicationDate, productId, brandId);
+        Price price = priceRepository.findPriceByDateAndBrandAndProduct(applicationDate, productId, brandId);
         Assertions.assertThat(price.getPrice()).isEqualTo(35.50);
     }
 
@@ -74,7 +74,7 @@ public class PriceRepositoryTest {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        Price price = priceRepository.findPriceByDateAndBrandAndId(applicationDate, productId, brandId);
+        Price price = priceRepository.findPriceByDateAndBrandAndProduct(applicationDate, productId, brandId);
         Assertions.assertThat(price.getPrice()).isEqualTo(30.50);
     }
 
@@ -89,7 +89,7 @@ public class PriceRepositoryTest {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        Price price = priceRepository.findPriceByDateAndBrandAndId(applicationDate, productId, brandId);
+        Price price = priceRepository.findPriceByDateAndBrandAndProduct(applicationDate, productId, brandId);
         Assertions.assertThat(price.getPrice()).isEqualTo(38.95);
     }
 }
