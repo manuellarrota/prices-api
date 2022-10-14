@@ -15,6 +15,9 @@
 	<description>Api to expose prices</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<!-- Versions of dependencies and plugins -->
+		<io.springfox.version>3.0.0</io.springfox.version>
+		<maven-model.version>3.8.5</maven-model.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,6 +44,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!--Swagger-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>${io.springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${io.springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${io.springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-model</artifactId>
+			<version>${maven-model.version}</version>
 		</dependency>
 	</dependencies>
 
