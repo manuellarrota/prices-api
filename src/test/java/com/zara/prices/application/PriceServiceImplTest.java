@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Locale;
 
 @SpringBootTest
-public class PriceServiceImplTest {
+class PriceServiceImplTest {
     @Mock
     private PriceRepository priceRepository;
     private PriceService priceService;
@@ -56,7 +56,7 @@ public class PriceServiceImplTest {
     }
 
     @Test
-    public void when_all_arguments_are_ok_then_return_price_ok(){
+    void when_all_arguments_are_ok_then_return_price_ok(){
         String applicationDateString = "2020-06-14 10:00:00";
         Date applicationDate;
         try {
@@ -69,7 +69,7 @@ public class PriceServiceImplTest {
     }
 
     @Test
-    public void when_some_arguments_are_not_ok_date_then_return_price_ok(){
+    void when_some_arguments_are_empty_date_then_return_price_ok(){
         String applicationDateString = "2020-06-14 10:00:00";
         Date applicationDate;
         try {
@@ -78,13 +78,13 @@ public class PriceServiceImplTest {
             throw new RuntimeException(e);
         }
         Price price = priceService.findPriceByDateAndBrandAndProduct(null, productId, brandId);
-        Assertions.assertThat(price).isEqualTo(null);
+        Assertions.assertThat(price).isNull();
 
         price = priceService.findPriceByDateAndBrandAndProduct(applicationDate, null, brandId);
-        Assertions.assertThat(price).isEqualTo(null);
+        Assertions.assertThat(price).isNull();
 
         price = priceService.findPriceByDateAndBrandAndProduct(applicationDate, productId, null);
-        Assertions.assertThat(price).isEqualTo(null);
+        Assertions.assertThat(price).isNull();
     }
 
 }

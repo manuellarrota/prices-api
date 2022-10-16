@@ -33,6 +33,14 @@ public class PriceController {
 
     @PostMapping
     public ResponseEntity<PriceResponseDto> getPriceByDateAndProductIdAndBrandId(@Validated @RequestBody PriceRequestDto priceRequestDto ) {
+        if(priceRequestDto.getBrandId() == null || priceRequestDto.getBrandId() == 0 ){
+            log.error("brand is empty. ");
+            return new ResponseEntity<>(new PriceResponseDto(), HttpStatus.BAD_REQUEST);
+        }
+        if(priceRequestDto.getProductId() == null || priceRequestDto.getProductId() == 0 ){
+            log.error("product is empty. ");
+            return new ResponseEntity<>(new PriceResponseDto(), HttpStatus.BAD_REQUEST);
+        }
         Date applicationDate;
         try {
             applicationDate =  df.parse(priceRequestDto.getApplicationDate());

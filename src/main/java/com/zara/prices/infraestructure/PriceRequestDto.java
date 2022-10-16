@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor @NoArgsConstructor
 public class PriceRequestDto {
     @NotNull()
-    //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String applicationDate;
     @NotNull()
     private Long productId;
