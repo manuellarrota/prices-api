@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8080
 
 # To See H2 Console in Browser:
 # http://localhost:8091/h2-console
@@ -21,7 +21,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     properties:
       hibernate:
-        show_sql: true
+        show_sql: false
         use_sql_comments: false
         format_sql: false
     defer-datasource-initialization: true
