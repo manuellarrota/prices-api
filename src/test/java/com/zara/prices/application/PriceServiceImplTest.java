@@ -52,7 +52,6 @@ class PriceServiceImplTest {
                 brandId(brandId).
                 build();
         Mockito.when(priceRepository.findPriceByDateAndBrandAndProduct(applicationDate, productId, brandId)).thenReturn(price);
-        //Mockito.when(priceRepository.findPriceByDateAndBrandAndProduct(applicationDate, productId, brandId)).thenReturn(price);
     }
 
     @Test

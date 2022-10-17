@@ -9,15 +9,15 @@ import java.util.Date;
 @Data
 public class PriceResponseDto {
     private Long productId;
-    private Long priceList;
+    private Long priceId;
     private Double price;
     private Integer brandId;
     private Date applicationDate;
 
-    public PriceResponseDto(Long productId, Long priceList, Double price, Integer brandId, Date applicationDate) {
+    public PriceResponseDto(Long productId, Long priceId, Double price, Integer brandId, Date applicationDate) {
         this.productId = productId;
         this.brandId = brandId;
-        this.priceList = priceList;
+        this.priceId = priceId;
         this.price = price;
         this.applicationDate = applicationDate;
     }

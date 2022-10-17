@@ -1,0 +1,1 @@
+docker run -d  --name prices-api  --net bridge  -p 8091:8091  inditex/prices-api

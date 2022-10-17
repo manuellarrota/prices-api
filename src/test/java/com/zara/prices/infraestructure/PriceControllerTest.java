@@ -61,46 +61,37 @@ class PriceControllerTest {
     @Test
     void when_all_arguments_ok_then_return_price_ok() {
         String applicationDateString = "2020-06-14 10:00:00";
-        Integer brandId = 1;
-        Long productId = 35455L;
         PriceRequestDto priceRequestDto = new PriceRequestDto(applicationDateString, productId, brandId);
-        ResponseEntity priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
-        Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
+        ResponseEntity<PriceResponseDto> priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
+        Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
+
     @Test
-    void when_all_arguments_ok_but_dont_match_then_return_not_found() {
+    void when_all_arguments_ok_but_dont_match_then_return_response_empty_ok() {
         String applicationDateString = "2020-00-14 10:00:00";
-        Integer brandId = 1;
-        Long productId = 35455L;
         PriceRequestDto priceRequestDto = new PriceRequestDto(applicationDateString, productId, brandId);
-        ResponseEntity priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
-        Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        ResponseEntity<PriceResponseDto> priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
+        Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
     @Test
     void when_date_not_ok_then_return_bad_request() {
         String applicationDateString = "2020-00-14";
-        Integer brandId = 1;
-        Long productId = 35455L;
         PriceRequestDto priceRequestDto = new PriceRequestDto(applicationDateString, productId, brandId);
-        ResponseEntity priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
+        ResponseEntity<PriceResponseDto> priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
         Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-
     }
 
     @Test
     void when_product_or_brand_are_empty_then_return_bad_request() {
         String applicationDateString = "2020-00-14 10:00:00";
-        Integer brandId = 1;
-        Long productId = 35455L;
-        PriceRequestDto priceRequestDto = new PriceRequestDto(applicationDateString, 0l, brandId);
-        ResponseEntity priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
+        PriceRequestDto priceRequestDto = new PriceRequestDto(applicationDateString, 0L, brandId);
+        ResponseEntity<PriceResponseDto> priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
         Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
         priceRequestDto = new PriceRequestDto(applicationDateString, productId, 0);
         priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
         Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-
     }
 }

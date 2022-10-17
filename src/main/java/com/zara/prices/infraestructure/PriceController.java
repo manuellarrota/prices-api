@@ -51,8 +51,7 @@ public class PriceController {
         Price price = priceService.findPriceByDateAndBrandAndProduct(applicationDate, priceRequestDto.getProductId(),
                 priceRequestDto.getBrandId());
         if (price == null){
-            log.info("Not price found to " + priceRequestDto);
-            return new ResponseEntity<>(new PriceResponseDto(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new PriceResponseDto(), HttpStatus.OK);
         }
         return new ResponseEntity<>(
                 new PriceResponseDto(
@@ -61,7 +60,7 @@ public class PriceController {
                         price.getPrice(),
                         price.getBrandId(),
                         applicationDate
-                ), HttpStatus.ACCEPTED);
+                ), HttpStatus.OK);
     }
 
 }

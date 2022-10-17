@@ -13,6 +13,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>prices</name>
 	<description>Api to expose prices</description>
+	<developers>
+		<developer>
+			<id>manuellarrota</id>
+			<name>Manuel Larrota</name>
+			<email>manuel.larrota@gmail.com</email>
+		</developer>
+	</developers>
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- Versions of dependencies and plugins -->
