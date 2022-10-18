@@ -10,7 +10,8 @@ public class ErrorResponseDto {
     private final Integer status;
     private final String timeStamp;
     private String message;
-    private String trace;
+    private final String trace;
+    private static final  String TRACE_WORD = "trace";
 
     public ErrorResponseDto(Integer status, Map<String, Object> errorAttributes, String profile) {
         this.status = status;
@@ -19,11 +20,11 @@ public class ErrorResponseDto {
         if (profile.compareTo("production") == 0) {
             message = "Sorry will be fixed soon!!.";
         }
-        trace = (String) (errorAttributes.get("trace") == null ? "Resource Not Available" : errorAttributes.get("trace"));
+        trace = (String) (errorAttributes.get(TRACE_WORD) == null ? "Resource Not Available" : errorAttributes.get(TRACE_WORD));
         if (message.isEmpty()) {
             message = trace.substring(0, trace.indexOf("at "));
         }
-        log.error("Trace: " + errorAttributes.get("trace"));
+        log.error("Trace: " + errorAttributes.get(TRACE_WORD));
     }
 
     @Override
