@@ -1,6 +1,6 @@
 package com.zara.prices.config;
 
-import com.zara.prices.infraestructure.ErrorResponseDto;
+import com.zara.prices.infrastructure.ErrorResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.error.ErrorAttributeOptions;

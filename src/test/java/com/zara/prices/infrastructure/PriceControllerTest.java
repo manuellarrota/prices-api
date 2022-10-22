@@ -1,4 +1,4 @@
-package com.zara.prices.infraestructure;
+package com.zara.prices.infrastructure;
 
 import com.zara.prices.application.PriceService;
 import com.zara.prices.domain.Price;
@@ -77,9 +77,15 @@ class PriceControllerTest {
 
     @Test
     void when_date_not_ok_then_return_bad_request() {
+        //Whaen date is bad format
         String applicationDateString = "2020-00-14";
         PriceRequestDto priceRequestDto = new PriceRequestDto(applicationDateString, productId, brandId);
         ResponseEntity<PriceResponseDto> priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
+        Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        //When date is empty
+        applicationDateString = "";
+        priceRequestDto = new PriceRequestDto(applicationDateString, productId, brandId);
+        priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
         Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     }
 
@@ -91,6 +97,14 @@ class PriceControllerTest {
         Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
         priceRequestDto = new PriceRequestDto(applicationDateString, productId, 0);
+        priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
+        Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+
+        priceRequestDto = new PriceRequestDto(applicationDateString, null, brandId);
+        priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
+        Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+
+        priceRequestDto = new PriceRequestDto(applicationDateString, productId, null);
         priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
         Assertions.assertThat(priceResponseDtoResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     }

@@ -1,4 +1,4 @@
-package com.zara.prices.infraestructure;
+package com.zara.prices.infrastructure;
 
 import lombok.extern.slf4j.Slf4j;
 

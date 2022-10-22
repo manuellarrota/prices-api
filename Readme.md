@@ -13,7 +13,7 @@ stock segun el rango de fechas y prioridad determinados para el producto.
 
 ## Estructura
 
-- application: todo lo que se consume externamente y dtos.
+- infrastructure: todo lo que se consume externamente y dtos.
 - application: todos los casos de uso.
 - domain: mapeo de entidades y acceso a datos.
 - data.sql: contiene insert inicial para pruebas.
