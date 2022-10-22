@@ -77,7 +77,7 @@ class PriceControllerTest {
 
     @Test
     void when_date_not_ok_then_return_bad_request() {
-        //Whaen date is bad format
+        //When date is bad format
         String applicationDateString = "2020-00-14";
         PriceRequestDto priceRequestDto = new PriceRequestDto(applicationDateString, productId, brandId);
         ResponseEntity<PriceResponseDto> priceResponseDtoResponseEntity = priceController.getPriceByDateAndProductIdAndBrandId(priceRequestDto);
